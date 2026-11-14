@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '../pages/juegos_page.dart';
 class MenuNagevacion extends StatefulWidget {
   const MenuNagevacion({super.key});
 
@@ -20,7 +20,7 @@ class _MenuNagevacionState extends State<MenuNagevacion> {
   // aqui iran las pantallas centrales que mostraran los datos, de momento soo son texto
   final List <Widget> paginas = [
     const Center(child: Text('Vista Categorias')),
-    const Center(child: Text('Vista Juegos')),
+    const JuegosPage(),
     const Center(child: Text('Vista Tecnicos')),
     const Center(child: Text('Vista Mantenimientos')),
   ];

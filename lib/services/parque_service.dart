@@ -5,7 +5,7 @@ class ParqueService {
 
   //aca defino los get para traer la informacion y conectarse con el api
 
-  final String api_URL = 'http://127.0.0.1:8000/api';
+  final String api_URL = 'http://10.0.2.2:8000/api';
   Future<List<dynamic>> Juegos() async {
     var respuesta = await http.get(Uri.parse('${this.api_URL}/juegos'));
     if (respuesta.statusCode == 200){
