@@ -7,8 +7,8 @@ class JuegosPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding:  EdgeInsets.all(5),
+      body: Align(
+        alignment: Alignment.centerRight,
         child: FutureBuilder
         (
         future: ParqueService().Juegos(),
@@ -19,15 +19,20 @@ class JuegosPage extends StatelessWidget {
 
             );
           }
-          return ListView.builder(
+          return ListView.separated(
             itemCount: snapshot.data.length,
+            separatorBuilder: (context, index) => const Divider(),
             itemBuilder: (context, index){
               var juego = snapshot.data[index];
               return ListTile(
                 leading: Icon(Icons.attractions),
-                title: Text(juego['nombre'].toString()),
-                subtitle: Text('Valor Entrada: \$${juego['valor_entrada']}'),
+               
+                title: Text(juego['nombre'].toString(),),
+                
+                subtitle: Text('Valor Entrada: \$${juego['valor_entrada']}',),
+                
               );
+              
             }
           );
         }
