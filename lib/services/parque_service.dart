@@ -40,4 +40,33 @@ class ParqueService {
     }
     return[];
   }
+
+
+  // Metodo para buscar 1 juego por su ID 
+  Future<dynamic> juego(int id) async{
+    var respuesta = await http.get(Uri.parse('${this.api_URL}/juegos/$id'));
+      if (respuesta.statusCode ==200){
+        return json.decode(respuesta.body);
+      }
+      return {};
+
+  }
+
+  // Método para buscar 1 tecnico por su RUT
+  Future<dynamic> tecnico(String rut) async {
+    var respuesta = await http.get(Uri.parse('${this.api_URL}/tecnicos/$rut'));
+    if (respuesta.statusCode == 200) {
+      return json.decode(respuesta.body);
+    }
+    return {};
+  }
+
+  Future<dynamic> mantenimiento(int id) async {
+  var respuesta = await http.get(Uri.parse('${this.api_URL}/mantenimientos/$id'));
+  if (respuesta.statusCode == 200) {
+    return json.decode(respuesta.body);
+  }
+  return {};
+}
+
 }

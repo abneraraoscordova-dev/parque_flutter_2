@@ -25,7 +25,10 @@ class JuegosPage extends StatelessWidget {
             itemBuilder: (context, index){
               var juego = snapshot.data[index];
               return ListTile(
-                leading: Icon(Icons.attractions),
+                leading: CircleAvatar(
+                  backgroundColor: Color(0xFFE3ECFF),
+                  child: Icon(Icons.attractions, color: Color(0xFF0D47A1),),
+                ),
                
                 title: Text(juego['nombre'].toString(),),
                 

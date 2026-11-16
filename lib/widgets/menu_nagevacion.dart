@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../pages/juegos_page.dart';
+import '../pages/tecnicos_page.dart';
 import '../pages/categorias_page.dart';
+import '../pages/mantenimientos_pages.dart';
 class MenuNagevacion extends StatefulWidget {
   const MenuNagevacion({super.key});
 
@@ -22,8 +24,8 @@ class _MenuNagevacionState extends State<MenuNagevacion> {
   final List <Widget> paginas = [
     const CategoriasPage(),
     const JuegosPage(),
-    const Center(child: Text('Vista Tecnicos')),
-    const Center(child: Text('Vista Mantenimientos')),
+    const TecnicosPage(),
+    const MantenimientosPages(),
   ];
 
   @override
