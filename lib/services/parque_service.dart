@@ -62,11 +62,57 @@ class ParqueService {
   }
 
   Future<dynamic> mantenimiento(int id) async {
-  var respuesta = await http.get(Uri.parse('${this.api_URL}/mantenimientos/$id'));
+  var respuesta = await http.get(Uri.parse('$api_URL/mantenimientos/$id'));
   if (respuesta.statusCode == 200) {
     return json.decode(respuesta.body);
   }
   return {};
 }
 
+// obtener detalle de solo 1 categoria 
+Future<dynamic> categoria(int id ) async {
+  var respuesta = await http.get(Uri.parse('$api_URL/categorias/$id'));
+  if (respuesta.statusCode == 200 ) {
+    return json.decode(respuesta.body);
+  }
+  return {};
+
+}
+
+//agregar 1 categoria (post)
+Future <dynamic> agregarCategoria(
+  String nombre, 
+  int edadMaxima
+) 
+async {
+  var respuesta = await http.post(
+    Uri.parse('$api_URL/categorias'),
+    headers: {
+      'Content-type':'aplication/json',
+      'Accept': 'application/json',
+    },
+    body: json.encode({
+      'nombre': nombre,
+      'edad_maxima': edadMaxima
+    })
+  );
+  return json.decode(respuesta.body);
+
+}
+// 4. Agregar nuevo técnico (HTTP POST - Diapo 6 de Insertar)
+  Future<dynamic> agregarTecnico(String rut, String nombre, String apellido) async {
+    var respuesta = await http.post(
+      Uri.parse('$api_URL/tecnicos'),
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: json.encode({
+        'rut': rut,
+        'nombre': nombre,
+        'apellido': apellido,
+      }),
+    );
+    return json.decode(respuesta.body);
+  }
 }
